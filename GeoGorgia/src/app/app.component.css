@@ -1,0 +1,11 @@
+styleFunc = (feature) =>{
+    console.log(feature.i.id)
+    let newColor = "#FF0000";
+    if(feature.i.id == 0) newColor = "#00FF00";
+    else newColor = "#0000FF";
+    return ({
+      clickable: false,
+      fillColor: newColor,
+      strokeWeight: 1
+    });
+  }
