@@ -1,3 +1,13 @@
+export class Marker {
+    constructor(
+        public lat: number,
+        public lng: number,
+        public label?: string) { }
+}
+
+
+
+
 export class Geometry {
     type: string;
     coordinates: any; //non sappiamo se sarà un number[] (Point), number[][] (LineString) o number [][][] (Polygon)
