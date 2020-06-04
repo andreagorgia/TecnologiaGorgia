@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GEOJSON, GeoFeatureCollection } from './models/geojson.model';
+import{Marker} from './models/marker.model';
 
 @Component({
   selector: 'app-root',
@@ -24,4 +25,26 @@ export class AppComponent implements OnInit {
     console.log(this.geoJsonObject); //stampo l'oggetto geoJsonObject sulla console
 
 
+}
+
+
+ngOnInit() {
+    this.markers = [
+      {
+        //features[0] seleziona il primo geoJson
+        //coordinates[0] ottiene la lista di poligoni.
+        //coordinates[0][0] ottiene il primo (e unico) poligono della lista
+        //coordinates[0][0][0] ottiene la longitudine
+        //coordinates[0][0][1] ottiene la latitudine
+        lng: this.geoJsonObject.features[0].geometry.coordinates[0][0][0],
+        lat: this.geoJsonObject.features[0].geometry.coordinates[0][0][1],
+        label: String(this.geoJsonObject.features[0].properties.id),
+      },
+      {
+        lng: this.geoJsonObject.features[1].geometry.coordinates[0][0][0],
+        lat: this.geoJsonObject.features[1].geometry.coordinates[0][0][1],
+        label: String(this.geoJsonObject.features[1].properties.id),
+      }
+    ]
+  }
 }
